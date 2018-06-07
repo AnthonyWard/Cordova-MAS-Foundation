@@ -4,22 +4,7 @@
  * Under the MIT License | (c) 2015 Alex Chao
  */
 
-!(function(global, factory) {
-
-  // Uses CommonJS, AMD or browser global to create a jQuery plugin.
-  // See: https://github.com/umdjs/umd
-  if (typeof define === 'function' && define.amd) {
-    // Expose this plugin as an AMD module. Register an anonymous module.
-    define([], factory);
-  } else if (typeof exports === 'object') {
-    // Node/CommonJS module
-    module.exports = Popup = factory();
-  } else {
-    // Browser globals
-    factory(global);
-  }
-
-}(this, function(global) {
+(function(global) {
 
   'use strict';
 
@@ -81,7 +66,7 @@
           ret.push(tags[i]);
         }
       }
-      
+
       return ret;
     }
   };
@@ -131,7 +116,7 @@
       bind(closeBtn, 'click', function() {
         self.close();
       });
-      
+
       bind(doc, 'keydown', function(e) {
         e = e || window.event;
         var keyCode = e.which || e.keyCode;
@@ -180,4 +165,4 @@
 
   return Popup;
 
-}));
+  })(this);
